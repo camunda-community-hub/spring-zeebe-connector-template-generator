@@ -6,6 +6,25 @@
 Generator for [Element Templates](https://docs.camunda.io/docs/next/components/modeler/desktop-modeler/element-templates/about-templates/) for [Camunda Modeler](https://docs.camunda.io/docs/next/components/modeler/about-modeler/) from Job Workers using [Spring Zeebe annotations](https://github.com/camunda-community-hub/spring-zeebe#job-worker-configuration-options).
 
 
+## Usage
+Build using `mvn clean install`.
+Add the following dependency to your Spring Zeebe Maven project:
+```xml
+    <dependency>
+      <groupId>org.camunda.community.extension.spring.zeebe.connector.template.generator</groupId>
+      <artifactId>spring-zeebe-connector-template-generator</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+```
+Add the generator to the component scan of your `ProcessApplication` class:
+```java
+@SpringBootApplication(
+    scanBasePackageClasses = {
+      ProcessApplication.class,
+      SpringZeebeConnectorTemplateGenerator.class
+    })
+```
+
 ## Example
 ### Job Worker
 ```java
